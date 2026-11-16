@@ -1,19 +1,23 @@
 {
   "office": [
     {
-      "name": "Shri Hiren Karia",
+      "name": "Shri Bharat Shah",
       "designation": "President"
     },
     {
-      "name": "Shri Bhavesh Gala",
+      "name": "Shri Raghav K. Kothari",
       "designation": "Vice President"
     },
     {
-      "name": "Shri Ashish Karia",
+      "name": "Shri Devang Vora",
       "designation": "Hon. Secretary"
     },
     {
       "name": "Shri Harshit Gala",
+      "designation": "Joint Hon. Secretary"
+    },
+    {
+      "name": "Shri Divyesh Shah",
       "designation": "Hon. Treasurer"
     }
   ],
@@ -21,16 +25,12 @@
     {
       "label": "MC Members",
       "names": [
-        "Shri Bharat Shah",
         "Shri Bhavesh Karia",
         "Shri Bhorik Bansal",
-        "Shri Devang Vora",
-        "Shri Divyesh Shah",
         "Shri Hitesh Shah",
         "Shri Kishore Kabra",
         "Shri Kunal Karia",
         "Shri Manoj Doshi",
-        "Shri Raghav Kothari",
         "Shri Ronak Nishar",
         "Shri Sumit Shah"
       ]
