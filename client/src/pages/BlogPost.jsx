@@ -29,7 +29,7 @@ export default function BlogPost() {
         <div className="container post">
           <img className="post-cover" src={post.image} alt="" />
           <p className="meta">
-            <span className="pill">{post.category}</span> By {post.author} · {formatDate(post.date)} · Updated {formatDate(post.updated)}
+            <span className="kicker">{post.category}</span> By {post.author} · {formatDate(post.date)} · Updated {formatDate(post.updated)}
           </p>
           <div className="post-body">
             {blocks.map((b, i) =>
@@ -43,9 +43,9 @@ export default function BlogPost() {
       </article>
 
       {all && (
-        <section className="section alt">
+        <section className="section tint">
           <div className="container">
-            <h2 className="section-title small center">More <em>Articles</em></h2>
+            <h2 className="display center">More <em>Articles</em></h2>
             <div className="blog-grid">
               {all.filter((p) => p.slug !== slug).map((p) => <BlogCard key={p.slug} post={p} />)}
             </div>

@@ -52,16 +52,17 @@
       "label": "Year established"
     },
     {
-      "value": "85+",
-      "label": "Years serving the trade"
-    },
-    {
-      "value": "38",
-      "label": "Committee members"
+      "value": "450+",
+      "label": "Member traders",
+      "note": "as reported in 2014"
     },
     {
       "value": "9",
-      "label": "Active sub-committees"
+      "label": "Sub-committees"
+    },
+    {
+      "value": "1959",
+      "label": "Convened the first FPTA conference"
     }
   ],
   "milestones": [
@@ -73,7 +74,7 @@
     {
       "year": "1959",
       "title": "First FPTA Conference",
-      "text": "PTA took the lead in convening the first conference of the Federation of Paper Traders' Associations of India in Bombay, inaugurated by Shri Lal Bahadur Shastri. Delegates from 17 associations attended."
+      "text": "PTA took the lead in convening the first conference of the Federation of Paper Traders' Associations of India in Bombay on 16 February 1959, inaugurated by Shri Lal Bahadur Shastri. Shri Jethmal Lalvani became FPTA's first President."
     },
     {
       "year": "1984",
@@ -96,9 +97,19 @@
       "text": "PTA's own office at Fort was inaugurated on 1st August 2013 — a dream come true for the Mumbai paper trading fraternity."
     },
     {
+      "year": "2014",
+      "title": "Knowledge seminars begin",
+      "text": "PTA hosted the first of its knowledge-sharing seminars on 1 February 2014, covering labour law, government compliances and employee benefits."
+    },
+    {
       "year": "2015",
       "title": "Dealer committees",
       "text": "Board Dealers and Coated Dealers committees formed for the recovery of dues, to the great benefit of members."
+    },
+    {
+      "year": "2024",
+      "title": "National Paper Day",
+      "text": "More than 60 paper dealers gathered at Hotel Orchid, Vile Parle on 1 August to celebrate National Paper Day with a pro-paper message."
     },
     {
       "year": "2025",
@@ -158,6 +169,14 @@
   ],
   "news": [
     {
+      "date": "2026-04-01",
+      "dateLabel": "April 2026",
+      "title": "PTA Mumbai delegation visits Jani Sales and Sejal Glass",
+      "text": "PTA Mumbai organised an industry visit for its members to Jani Sales and Sejal Glass. President Shri Hiren Karia wrote about the experience for PrintWeek.",
+      "source": "PrintWeek India",
+      "url": "https://www.printweek.in/features/pta-mumbai-delegation-visits-jani-sales-and-sejal-glass--61933"
+    },
+    {
       "date": "2025-10-17",
       "title": "PTA Mumbai establishes Women's Wing, championing inclusivity in the industry",
       "text": "Six women entrepreneurs were inducted into the PTA Mumbai Committee. President Shri Hiren Karia urged FPTA and other regional associations to consider similar representation.",
@@ -165,18 +184,25 @@
       "url": "https://www.printweek.in/news/pta-mumbai-establishes-womens-wing-61211"
     },
     {
+      "date": "2024-08-02",
+      "title": "National Paper Day meet in Mumbai has a pro-paper message",
+      "text": "Over 60 paper dealers met at Hotel Orchid, Vile Parle to celebrate National Paper Day, presided over by PTA President Shri Ashok Kabra and FPTA President-nominee Shri Mehul Mehta. Speakers stressed that paper is renewable, biodegradable and recyclable.",
+      "source": "PrintWeek India",
+      "url": "https://printweek.in/news/-national-paper-day-meet-in-mumbai-has-a-pro-paper-message-59216"
+    },
+    {
+      "date": "2014-02-03",
+      "title": "Paper Traders' Association hosts its first knowledge seminar",
+      "text": "The seminar on labour law, government compliances and employee benefits was the first of a planned bi-monthly series for PTA's 450 members, shortly after the move to the new office at Fort.",
+      "source": "PrintWeek India",
+      "url": "https://printweek.in/news/paper-traders-8217-association-hosts-knowledge-seminar-13524"
+    },
+    {
       "date": "2009-09-05",
       "title": "PTA Mumbai hosts FPTA's 48th AGM in its Golden Jubilee year",
       "text": "The 48th Annual General Meeting & Conference of the Federation of Paper Traders' Associations of India was organised by PTA Mumbai at Hotel Taj Lands End, Mumbai.",
       "source": "Papermart",
       "url": "https://papermart.in/fpta-organizes-48th-agm/"
-    },
-    {
-      "date": "1959-02-16",
-      "title": "PTA convenes the first-ever FPTA conference",
-      "text": "The association took the lead in bringing paper traders' associations from across India together in Bombay — the beginning of the national federation.",
-      "source": "PTA History",
-      "url": "/about-us"
     }
   ],
   "faqs": [
@@ -190,7 +216,7 @@
     },
     {
       "q": "Is PTA Mumbai affiliated to a national body?",
-      "a": "Yes. PTA Mumbai works closely with the Federation of Paper Traders' Associations of India (FPTA) and took the lead in convening FPTA's very first conference in 1959."
+      "a": "Yes. PTA Mumbai works closely with the Federation of Paper Traders' Associations of India (FPTA). It took the lead in convening FPTA's very first conference in 1959, and Shri Jethmal Lalvani of Bombay became the Federation's first President."
     },
     {
       "q": "Where is the PTA office and when is it open?",
@@ -200,5 +226,34 @@
       "q": "How can I raise a grievance against another trader?",
       "a": "Contact the office by phone or email, or use the enquiry form on our Contact page. Your matter will be routed to the Grievances Redressal committee or our mediation service."
     }
-  ]
+  ],
+  "industry": {
+    "intro": "Paper traders are the link between mills and millions of businesses — acting as distributors, stockists, financers and transporters for the industry.",
+    "facts": [
+      {
+        "value": "16 kg",
+        "label": "India's per-capita paper consumption a year, against 85–90 kg in China — room to grow",
+        "source": "PTA National Paper Day, 2024",
+        "url": "https://printweek.in/news/-national-paper-day-meet-in-mumbai-has-a-pro-paper-message-59216"
+      },
+      {
+        "value": "10,000+",
+        "label": "paper traders across India",
+        "source": "PrintWeek, 2019",
+        "url": "https://www.printweek.in/features/hiren-karia-the-argumentative-indian-paper-dealer-42319"
+      },
+      {
+        "value": "17 mn t",
+        "label": "size of India's paper market, growing about 7% a year",
+        "source": "PrintWeek, 2019",
+        "url": "https://www.printweek.in/features/hiren-karia-the-argumentative-indian-paper-dealer-42319"
+      },
+      {
+        "value": "37",
+        "label": "associations affiliated to FPTA, the national federation PTA helped create",
+        "source": "The Pulp & Paper Times",
+        "url": "https://thepulpandpapertimes.com/news/imposing-duties-2158"
+      }
+    ]
+  }
 }

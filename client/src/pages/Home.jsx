@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useApi, useSite } from '../api.jsx';
 import BlogCard, { formatDate } from '../components/BlogCard.jsx';
-import { PhoneIcon, ArrowIcon, UserIcon, FileIcon, ChevronIcon, ExternalIcon, iconMap } from '../components/Icons.jsx';
+import Ledger from '../components/Ledger.jsx';
+import { PhoneIcon, ArrowIcon, ChevronIcon } from '../components/Icons.jsx';
+
+const initials = (name) => name.replace(/^(Shri|Smt\.)\s+/, '').split(' ').map((w) => w[0]).join('');
+const newsDate = (n) => n.dateLabel ?? formatDate(n.date);
 
 export default function Home() {
   const site = useSite();
@@ -10,6 +14,7 @@ export default function Home() {
   const { data: blogs } = useApi('/api/blogs');
   const [openFaq, setOpenFaq] = useState(0);
   const formUrl = site?.membershipFormUrl ?? '/PTA-New-Membership-Form.pdf';
+  const [lead, ...moreNews] = site?.news ?? [];
 
   return (
     <>
@@ -17,15 +22,15 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-text">
-            <span className="eyebrow">{site?.hero.caption ?? 'New Opportunities Makes company growth'}</span>
+            <p className="hero-kicker">{site?.hero.caption ?? 'New Opportunities Makes company growth'}</p>
             <h1>Empowering <em>Traders</em>, Connecting <em>Mumbai</em></h1>
             <p className="lead">{site?.hero.intro}</p>
             <div className="hero-actions">
-              <Link to="/about-us" className="btn btn-primary">View History <ArrowIcon width={18} height={18} /></Link>
+              <Link to="/about-us" className="btn btn-primary">View History <ArrowIcon width={17} height={17} /></Link>
               {site && (
                 <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} className="hero-phone">
-                  <span className="icon-circle"><PhoneIcon /></span>
-                  <span><small>Call us anytime</small>{site.contact.phone}</span>
+                  <span className="hero-phone-icon"><PhoneIcon width={20} height={20} /></span>
+                  {site.contact.phone}
                 </a>
               )}
             </div>
@@ -33,209 +38,189 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- Stats strip ---------- */}
-      {site?.stats && (
-        <section className="stats-strip">
-          <div className="container stats-grid">
-            {site.stats.map((s) => (
-              <div key={s.label}>
-                <strong>{s.value}</strong>
-                <span>{s.label}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* ---------- History ---------- */}
-      <section className="section history">
-        <div className="container history-grid">
-          <div className="history-media">
-            <img src="/images/history.png" alt="Paper Traders' Association of Mumbai" loading="lazy" />
-            <div className="year-badge">
-              <strong>{site?.foundedYear ?? 1941}</strong>
-              <span>Association Roots</span>
+      {/* ---------- Since 1941 ---------- */}
+      <section className="section intro">
+        <div className="container">
+          <div className="intro-grid">
+            <div className="intro-head">
+              <p className="kicker">Association Roots · Est. {site?.foundedYear ?? 1941}</p>
+              <h2 className="display">A glorious history, written by Mumbai's paper traders.</h2>
+              <figure className="intro-figure">
+                <img src="/images/history.png" alt="PTA Mumbai and the Federation of Paper Traders' Associations of India" loading="lazy" />
+              </figure>
+            </div>
+            <div className="intro-body prose">
+              <p className="dropcap">{site?.historyIntro}</p>
+              <h3>Affiliations</h3>
+              <p>{site?.affiliations}</p>
+              <Link to="/about-us" className="text-link">Read the full history, year by year</Link>
             </div>
           </div>
-          <div>
-            <span className="eyebrow">Association Roots</span>
-            <h2 className="section-title">A Glorious <em>History</em></h2>
-            <p>{site?.historyIntro}</p>
-            <h3 className="sub-title">Affiliations</h3>
-            <p>{site?.affiliations}</p>
-            <Link to="/about-us" className="btn btn-outline">Read Our Full History <ArrowIcon width={18} height={18} /></Link>
+          <Ledger items={site?.stats} />
+        </div>
+      </section>
+
+      {/* ---------- Services ---------- */}
+      <section className="section services" id="services">
+        <div className="container split">
+          <div className="split-head">
+            <p className="kicker">Our Services</p>
+            <h2 className="display">What the association does for its members.</h2>
+            <p className="muted">From settling a dispute to testing a ream, PTA is the first call a Mumbai paper trader makes.</p>
           </div>
+          <ol className="numbered">
+            {site?.services.map((s, i) => (
+              <li key={s.title}>
+                <span className="num">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{s.title}</h3>
+                  <p>{s.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
       {/* ---------- Milestones ---------- */}
       {site?.milestones && (
         <section className="section milestones">
-          <div className="paper-lines" aria-hidden="true" />
           <div className="container">
-            <div className="section-head center">
-              <span className="eyebrow light">Since 1941</span>
-              <h2 className="section-title light">Key <em>Milestones</em></h2>
+            <div className="row-head">
+              <div>
+                <p className="kicker light">From the archives</p>
+                <h2 className="display light">Moments that shaped the association.</h2>
+              </div>
+              <Link to="/about-us" className="text-link light">Full timeline</Link>
             </div>
-            <ol className="milestone-track">
-              {site.milestones.map((m) => (
-                <li key={m.year}>
-                  <span className="m-year">{m.year}</span>
-                  <h3>{m.title}</h3>
-                  <p>{m.text}</p>
-                </li>
-              ))}
-            </ol>
           </div>
+          <ol className="years-scroll" tabIndex={0} aria-label="Milestones, scroll sideways">
+            {site.milestones.map((m) => (
+              <li key={m.year}>
+                <span className="year">{m.year}</span>
+                <h3>{m.title}</h3>
+                <p>{m.text}</p>
+              </li>
+            ))}
+          </ol>
         </section>
       )}
 
-      {/* ---------- Committee ---------- */}
-      <section className="section committee">
+      {/* ---------- Leadership ---------- */}
+      <section className="section leadership">
         <div className="container">
-          <div className="section-head center">
-            <span className="eyebrow">About Our Leadership</span>
-            <h2 className="section-title">Our <em>Committee</em></h2>
+          <div className="row-head">
+            <div>
+              <p className="kicker">About Our Leadership</p>
+              <h2 className="display">Our Committee</h2>
+            </div>
+            <Link to="/members" className="text-link">All committee &amp; sub-committee members</Link>
           </div>
-          <div className="leader-grid">
+          <div className="people">
             {members?.office.map((m) => (
-              <div className="leader-card" key={m.name}>
-                <div className="leader-avatar"><UserIcon width={40} height={40} /></div>
+              <div className="person" key={m.name}>
+                <span className="monogram">{initials(m.name)}</span>
                 <h3>{m.name}</h3>
                 <p>{m.designation}</p>
               </div>
             ))}
           </div>
-          <div className="center mt">
-            <Link to="/members" className="btn btn-outline">View All Members <ArrowIcon width={18} height={18} /></Link>
-          </div>
         </div>
       </section>
 
-      {/* ---------- Services ---------- */}
-      <section className="section services" id="services">
-        <div className="container">
-          <div className="section-head center">
-            <span className="eyebrow">What We Do</span>
-            <h2 className="section-title">Our <em>Services</em></h2>
-          </div>
-          <div className="service-grid">
-            {site?.services.map((s) => {
-              const Icon = iconMap[s.icon] ?? iconMap.handshake;
-              return (
-                <div className="service-card" key={s.title}>
-                  <div className="service-icon"><Icon /></div>
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- Why join ---------- */}
-      {site?.whyJoin && (
-        <section className="section alt why-join">
+      {/* ---------- Paper in India ---------- */}
+      {site?.industry && (
+        <section className="section industry">
           <div className="container">
-            <div className="section-head center">
-              <span className="eyebrow">Member Benefits</span>
-              <h2 className="section-title">Why Join <em>PTA Mumbai?</em></h2>
-              <p className="section-lead">Eight decades of standing together for Mumbai's paper trade — here's what membership brings you.</p>
-            </div>
-            <div className="benefit-grid">
-              {site.whyJoin.map((b) => {
-                const Icon = iconMap[b.icon] ?? iconMap.handshake;
-                return (
-                  <div className="benefit" key={b.title}>
-                    <span className="benefit-icon"><Icon width={26} height={26} /></span>
-                    <div>
-                      <h3>{b.title}</h3>
-                      <p>{b.text}</p>
-                    </div>
+            <div className="split">
+              <div className="split-head">
+                <p className="kicker">The trade we represent</p>
+                <h2 className="display">Paper in India, by the numbers.</h2>
+                <p className="muted">{site.industry.intro}</p>
+              </div>
+              <div className="facts">
+                {site.industry.facts.map((f) => (
+                  <div className="fact" key={f.value}>
+                    <strong>{f.value}</strong>
+                    <p>{f.label}</p>
+                    <a href={f.url} target="_blank" rel="noreferrer">Source: {f.source}</a>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
           </div>
         </section>
       )}
 
-      {/* ---------- How to join ---------- */}
-      {site?.joinSteps && (
-        <section className="section join">
-          <div className="container">
-            <div className="section-head center">
-              <span className="eyebrow">Membership</span>
-              <h2 className="section-title">How to <em>Become a Member</em></h2>
+      {/* ---------- Membership ---------- */}
+      <section className="section membership">
+        <div className="container">
+          <div className="membership-card">
+            <div className="membership-intro">
+              <p className="kicker light">Membership</p>
+              <h2 className="display light">Join the association that has stood by Mumbai's paper trade since 1941.</h2>
+              <ol className="steps">
+                {site?.joinSteps?.map((s, i) => (
+                  <li key={s.title}><span>{i + 1}</span><div><strong>{s.title}</strong> — {s.text}</div></li>
+                ))}
+              </ol>
+              <div className="membership-actions">
+                <a href={formUrl} className="btn btn-light" target="_blank" rel="noreferrer">Download Membership Form</a>
+                <Link to="/contact-us" className="text-link light">Ask us a question</Link>
+              </div>
             </div>
-            <ol className="steps">
-              {site.joinSteps.map((s, i) => (
-                <li key={s.title}>
-                  <span className="step-no">{String(i + 1).padStart(2, '0')}</span>
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-      )}
-
-      {/* ---------- Membership CTA ---------- */}
-      <section className="cta-band">
-        <div className="container cta-inner">
-          <div>
-            <h2>Become a member of PTA Mumbai</h2>
-            <p>Download the membership form, fill it in and submit it at our Fort office.</p>
-          </div>
-          <div className="cta-actions">
-            <a href={formUrl} className="btn btn-light" target="_blank" rel="noreferrer">
-              <FileIcon width={18} height={18} /> Membership Form
-            </a>
-            <Link to="/contact-us" className="btn btn-ghost">Contact Us</Link>
+            <div className="membership-benefits">
+              <h3>What members get</h3>
+              <ul>
+                {site?.whyJoin?.map((b) => (
+                  <li key={b.title}><strong>{b.title}.</strong> {b.text}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ---------- News ---------- */}
-      {site?.news && (
+      {lead && (
         <section className="section news">
           <div className="container">
-            <div className="section-head center">
-              <span className="eyebrow">Updates</span>
-              <h2 className="section-title">PTA in the <em>News</em></h2>
+            <div className="row-head">
+              <div>
+                <p className="kicker">Updates</p>
+                <h2 className="display">PTA in the News</h2>
+              </div>
             </div>
-            <div className="news-grid">
-              {site.news.map((n) => {
-                const external = n.url.startsWith('http');
-                const inner = (
-                  <>
-                    <span className="news-date">{formatDate(n.date)}</span>
-                    <h3>{n.title}</h3>
-                    <p>{n.text}</p>
-                    <span className="news-source">
-                      {n.source} {external ? <ExternalIcon /> : <ArrowIcon width={15} height={15} />}
-                    </span>
-                  </>
-                );
-                return external ? (
-                  <a key={n.title} className="news-card" href={n.url} target="_blank" rel="noreferrer">{inner}</a>
-                ) : (
-                  <Link key={n.title} className="news-card" to={n.url}>{inner}</Link>
-                );
-              })}
+            <div className="news-layout">
+              <a className="news-lead" href={lead.url} target="_blank" rel="noreferrer">
+                <p className="news-meta">{lead.source} · {newsDate(lead)}</p>
+                <h3>{lead.title}</h3>
+                <p>{lead.text}</p>
+                <span className="text-link">Read the story</span>
+              </a>
+              <ul className="news-list">
+                {moreNews.map((n) => (
+                  <li key={n.title}>
+                    <a href={n.url} target="_blank" rel="noreferrer">
+                      <p className="news-meta">{n.source} · {newsDate(n)}</p>
+                      <h4>{n.title}</h4>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
       )}
 
       {/* ---------- Blogs ---------- */}
-      <section className="section alt blogs">
+      <section className="section blogs">
         <div className="container">
-          <div className="section-head center">
-            <span className="eyebrow">Featured This Week</span>
-            <h2 className="section-title">Read Our <em>Blogs</em></h2>
+          <div className="row-head">
+            <div>
+              <p className="kicker">Featured This Week</p>
+              <h2 className="display">Read Our Blogs</h2>
+            </div>
           </div>
           <div className="blog-grid">
             {blogs?.map((p) => <BlogCard key={p.slug} post={p} />)}
@@ -246,12 +231,11 @@ export default function Home() {
       {/* ---------- FAQ ---------- */}
       {site?.faqs && (
         <section className="section faq">
-          <div className="container faq-grid">
-            <div>
-              <span className="eyebrow">FAQ</span>
-              <h2 className="section-title">Frequently Asked <em>Questions</em></h2>
-              <p>Can't find what you're looking for? Our office team is happy to help.</p>
-              <Link to="/contact-us" className="btn btn-primary">Ask a Question <ArrowIcon width={18} height={18} /></Link>
+          <div className="container split">
+            <div className="split-head">
+              <p className="kicker">FAQ</p>
+              <h2 className="display">Questions we are often asked.</h2>
+              <p className="muted">Can't find your answer? Call the office on {site.contact.phone} — Mon to Sat, 10 AM to 6 PM.</p>
             </div>
             <div className="faq-list">
               {site.faqs.map((f, i) => (

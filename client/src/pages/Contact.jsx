@@ -44,8 +44,8 @@ export default function Contact() {
       <section className="section">
         <div className="container contact-grid">
           <div>
-            <span className="eyebrow">Get in touch</span>
-            <h2 className="section-title">Let's start <em>working together</em></h2>
+            <span className="kicker">Get in touch</span>
+            <h2 className="display">Let's start <em>working together</em></h2>
 
             {c && (
               <div className="contact-cards">
