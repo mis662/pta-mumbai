@@ -27,7 +27,7 @@ export default function Contact() {
       const data = await res.json();
       if (!res.ok) {
         setErrors(data.errors || {});
-        setStatus({ state: 'error', message: 'Please correct the highlighted fields.' });
+        setStatus({ state: 'error', message: data.message || 'Please correct the highlighted fields.' });
         return;
       }
       setForm(empty);

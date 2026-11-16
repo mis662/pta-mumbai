@@ -50,3 +50,13 @@ For Hostinger email: `SMTP_HOST=smtp.hostinger.com`, `SMTP_PORT=465`.
 | `server/data/members.json` | Office bearers, committee, sub-committees, Women's Wing |
 | `server/data/history.json` | Year-by-year history (About page) |
 | `server/data/blogs.json` | Blog articles |
+
+## Deploying on Netlify
+
+`netlify.toml` contains all the settings, so leave the Netlify UI build fields empty (or: build `npm run build`, publish `client/dist`).
+
+- The website is served from `client/dist`.
+- The API (`/api/*`) runs as a Netlify Function: `netlify/functions/api.mjs` → `server/app.js`.
+- Old WordPress URLs are redirected in `netlify.toml`.
+- **Contact form:** Netlify cannot save files, so enquiries are delivered **by email only**. Add these in Netlify → Site configuration → Environment variables: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM`, `MAIL_TO`. Then redeploy.
+- After editing anything in `server/data/*.json`, push to GitHub; Netlify redeploys automatically.

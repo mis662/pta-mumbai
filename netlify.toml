@@ -1,0 +1,70 @@
+# Netlify settings for ptamumbai.com
+[build]
+  command = "npm run build"
+  publish = "client/dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# ---- API → Netlify Function ----
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+# ---- Old WordPress URLs (keep Google links working) ----
+[[redirects]]
+  from = "/the-truth-about-paper-myths-vs-facts/"
+  to = "/blog/the-truth-about-paper-myths-vs-facts"
+  status = 301
+[[redirects]]
+  from = "/the-truth-about-paper-myths-vs-facts"
+  to = "/blog/the-truth-about-paper-myths-vs-facts"
+  status = 301
+[[redirects]]
+  from = "/paper-a-sustainable-choice-for-a-changing-world/"
+  to = "/blog/paper-a-sustainable-choice-for-a-changing-world"
+  status = 301
+[[redirects]]
+  from = "/paper-a-sustainable-choice-for-a-changing-world"
+  to = "/blog/paper-a-sustainable-choice-for-a-changing-world"
+  status = 301
+[[redirects]]
+  from = "/a-corporate-guide-to-continuous-improvement/"
+  to = "/blog/the-future-of-paper"
+  status = 301
+[[redirects]]
+  from = "/a-corporate-guide-to-continuous-improvement"
+  to = "/blog/the-future-of-paper"
+  status = 301
+[[redirects]]
+  from = "/wp-content/uploads/2025/10/PTA-New-Membership-Form.pdf"
+  to = "/PTA-New-Membership-Form.pdf"
+  status = 301
+[[redirects]]
+  from = "/home/"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/category/*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/growhub-team/*"
+  to = "/"
+  status = 301
+
+# ---- React app: every other page loads index.html ----
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
