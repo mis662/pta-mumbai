@@ -90,6 +90,21 @@ app.post('/api/contact', async (req, res) => {
 
 app.use('/api', (_req, res) => res.status(404).json({ error: 'Not found' }));
 
+// ---------- Old WordPress URLs → new pages (keeps Google links working) ----------
+const legacyRedirects = {
+  '/the-truth-about-paper-myths-vs-facts': '/blog/the-truth-about-paper-myths-vs-facts',
+  '/paper-a-sustainable-choice-for-a-changing-world': '/blog/paper-a-sustainable-choice-for-a-changing-world',
+  '/a-corporate-guide-to-continuous-improvement': '/blog/the-future-of-paper',
+  '/wp-content/uploads/2025/10/PTA-New-Membership-Form.pdf': '/PTA-New-Membership-Form.pdf',
+  '/home': '/',
+};
+app.use((req, res, next) => {
+  const p = req.path.replace(/\/+$/, '') || '/';
+  if (legacyRedirects[p]) return res.redirect(301, legacyRedirects[p]);
+  if (p.startsWith('/category/') || p.startsWith('/growhub-team/')) return res.redirect(301, '/');
+  next();
+});
+
 // ---------- Serve React build in production ----------
 app.use(express.static(CLIENT_DIST));
 app.get('/{*splat}', (_req, res, next) =>
