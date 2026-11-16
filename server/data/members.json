@@ -2,7 +2,8 @@
   "office": [
     {
       "name": "Shri Bharat Shah",
-      "designation": "President"
+      "designation": "President",
+      "photo": "/images/members/bharat-shah.jpg"
     },
     {
       "name": "Shri Raghav Kothari",
@@ -10,7 +11,8 @@
     },
     {
       "name": "Shri Devang Vora",
-      "designation": "Hon. Secretary"
+      "designation": "Hon. Secretary",
+      "photo": "/images/members/devang-vora.jpg"
     },
     {
       "name": "Shri Harshit Gala",
@@ -18,7 +20,8 @@
     },
     {
       "name": "Shri Divyesh Shah",
-      "designation": "Hon. Treasurer"
+      "designation": "Hon. Treasurer",
+      "photo": "/images/members/divyesh-shah.jpg"
     }
   ],
   "groups": [

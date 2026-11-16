@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 import { useApi, Loader, ErrorBox } from '../api.jsx';
 import PageBanner from '../components/PageBanner.jsx';
+import PersonCard, { initials } from '../components/PersonCard.jsx';
 
-const initials = (name) => name.replace(/^(Shri|Smt\.)\s+/, '').split(' ').map((w) => w[0]).join('');
 
 export default function Members() {
   const { data, loading, error } = useApi('/api/members');
@@ -39,11 +39,7 @@ export default function Members() {
               </div>
               <div className="people">
                 {data.office.map((m, i) => (
-                  <div className={`person ${i === 0 ? 'lead' : ''}`} key={m.name}>
-                    <span className="monogram">{initials(m.name)}</span>
-                    <h3>{m.name}</h3>
-                    <p>{m.designation}</p>
-                  </div>
+                  <PersonCard key={m.name} person={m} lead={i === 0} />
                 ))}
               </div>
             </div>

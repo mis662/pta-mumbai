@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { useApi, useSite } from '../api.jsx';
 import BlogCard, { formatDate } from '../components/BlogCard.jsx';
 import Ledger from '../components/Ledger.jsx';
+import PersonCard from '../components/PersonCard.jsx';
 import { PhoneIcon, ArrowIcon, ChevronIcon, iconMap } from '../components/Icons.jsx';
 
-const initials = (name) => name.replace(/^(Shri|Smt\.)\s+/, '').split(' ').map((w) => w[0]).join('');
 const newsDate = (n) => n.dateLabel ?? formatDate(n.date);
 
 export default function Home() {
@@ -130,11 +130,7 @@ export default function Home() {
           </div>
           <div className="people">
             {members?.office.map((m, i) => (
-              <div className={`person ${i === 0 ? 'lead' : ''}`} key={m.name}>
-                <span className="monogram">{initials(m.name)}</span>
-                <h3>{m.name}</h3>
-                <p>{m.designation}</p>
-              </div>
+              <PersonCard key={m.name} person={m} lead={i === 0} />
             ))}
           </div>
         </div>

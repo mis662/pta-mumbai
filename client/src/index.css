@@ -204,7 +204,15 @@ em { font-style: italic; }
 .person::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--maroon); transform: scaleX(.25); transition: transform .3s; }
 .person:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -22px rgba(40,25,15,.4); }
 .person:hover::before { transform: scaleX(1); }
-.person .monogram { margin: 0 auto 20px; }
+.person .avatar {
+  display: grid; place-items: center; width: 136px; height: 136px; border-radius: 50%;
+  margin: 0 auto 22px; object-fit: cover; object-position: center 22%;
+  border: 4px solid var(--card); box-shadow: 0 0 0 2px var(--maroon), 0 16px 30px -14px rgba(40,25,15,.55);
+  background: var(--paper-2);
+}
+.person .avatar.monogram { font-size: 40px; background: var(--maroon); color: #fff; }
+.person.lead .avatar { border-color: var(--maroon-deep); box-shadow: 0 0 0 2px #f1d3cf, 0 16px 30px -14px rgba(0,0,0,.6); }
+.person.lead .avatar.monogram { background: #fbf6ee; color: var(--maroon-deep); }
 .person.lead { background: var(--maroon-deep); border-color: var(--maroon-deep); }
 .person.lead::before { background: #e6b7b5; }
 .person.lead h3 { color: #fff; }
@@ -461,7 +469,8 @@ a.contact-card:hover { color: var(--maroon); }
   .person { padding: 24px 14px 20px; }
   .person h3 { font-size: 19px; }
   .person p { font-size: 11.5px; }
-  .monogram { width: 68px; height: 68px; font-size: 23px; }
+  .person .avatar { width: 104px; height: 104px; }
+  .person .avatar.monogram { font-size: 32px; }
   .service-card { padding: 26px 22px; }
   .photo-stack { padding: 0 40px 50px 0; }
   .years-badge { left: -8px; bottom: 20px; padding: 12px 16px; }
