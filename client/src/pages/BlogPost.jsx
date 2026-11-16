@@ -1,3 +1,4 @@
+import { asset } from '../asset.js';
 import { Link, useParams } from 'react-router-dom';
 import { useApi, Loader } from '../api.jsx';
 import PageBanner from '../components/PageBanner.jsx';
@@ -27,7 +28,7 @@ export default function BlogPost() {
       <PageBanner title={post.title} crumb="Blog" />
       <article className="section">
         <div className="container post">
-          <img className="post-cover" src={post.image} alt="" />
+          <img className="post-cover" src={asset(post.image)} alt="" />
           <p className="meta">
             <span className="kicker">{post.category}</span> By {post.author} · {formatDate(post.date)} · Updated {formatDate(post.updated)}
           </p>

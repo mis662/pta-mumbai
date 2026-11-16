@@ -1,3 +1,4 @@
+import { asset } from '../asset.js';
 import { Link } from 'react-router-dom';
 
 export const formatDate = (d) =>
@@ -7,7 +8,7 @@ export default function BlogCard({ post }) {
   return (
     <article className="blog-card">
       <Link to={`/blog/${post.slug}`} className="blog-thumb">
-        <img src={post.image} alt="" loading="lazy" />
+        <img src={asset(post.image)} alt="" loading="lazy" />
       </Link>
       <p className="kicker">{post.category}</p>
       <h3><Link to={`/blog/${post.slug}`}>{post.title}</Link></h3>

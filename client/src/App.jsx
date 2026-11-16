@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Home from './pages/Home.jsx';
@@ -36,6 +36,13 @@ export default function App() {
           <Route path="/members" element={<Members />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          {/* Old WordPress URLs (GitHub Pages has no server-side redirects) */}
+          <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route path="/category/*" element={<Navigate to="/" replace />} />
+          <Route path="/growhub-team/*" element={<Navigate to="/" replace />} />
+          <Route path="/the-truth-about-paper-myths-vs-facts" element={<Navigate to="/blog/the-truth-about-paper-myths-vs-facts" replace />} />
+          <Route path="/paper-a-sustainable-choice-for-a-changing-world" element={<Navigate to="/blog/paper-a-sustainable-choice-for-a-changing-world" replace />} />
+          <Route path="/a-corporate-guide-to-continuous-improvement" element={<Navigate to="/blog/the-future-of-paper" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

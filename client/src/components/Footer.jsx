@@ -1,3 +1,4 @@
+import { asset } from '../asset.js';
 import { Link } from 'react-router-dom';
 import { useSite } from '../api.jsx';
 import { PinIcon, PhoneIcon, MailIcon, ClockIcon } from './Icons.jsx';
@@ -9,7 +10,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container">
         <div className="footer-mark">
-          <span className="logo-crop footer-logo"><img src="/images/logo.png" alt="PTA Mumbai" /></span>
+          <span className="logo-crop footer-logo"><img src={asset("/images/logo.png")} alt="PTA Mumbai" /></span>
           <p>Paper Traders' Association of Mumbai.<br />Serving the paper trade since 1941.</p>
         </div>
 
@@ -41,7 +42,7 @@ export default function Footer() {
               <Link to="/about-us">About us</Link>
               <Link to="/members">Members</Link>
               <Link to="/contact-us">Contact us</Link>
-              <a href={site?.membershipFormUrl ?? '/PTA-New-Membership-Form.pdf'} target="_blank" rel="noreferrer">Membership form</a>
+              <a href={asset(site?.membershipFormUrl ?? '/PTA-New-Membership-Form.pdf')} target="_blank" rel="noreferrer">Membership form</a>
             </p>
           </div>
         </div>

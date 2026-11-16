@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSite } from '../api.jsx';
+import { IS_STATIC } from '../asset.js';
 import PageBanner from '../components/PageBanner.jsx';
 import { PhoneIcon, MailIcon, PinIcon } from '../components/Icons.jsx';
 
@@ -16,8 +17,27 @@ export default function Contact() {
 
   async function submit(e) {
     e.preventDefault();
-    setStatus({ state: 'sending', message: '' });
     setErrors({});
+
+    if (IS_STATIC) {
+      // No server on GitHub Pages: hand the enquiry to the visitor's email app.
+      const errs = {};
+      if (!form.name.trim()) errs.name = 'Please enter your name';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errs.email = 'Please enter a valid email';
+      if (!form.message.trim()) errs.message = 'Please enter a message';
+      if (Object.keys(errs).length) {
+        setErrors(errs);
+        setStatus({ state: 'error', message: 'Please correct the highlighted fields.' });
+        return;
+      }
+      const subject = `Website enquiry: ${form.service || 'General'} – ${form.name.trim()}`;
+      const body = `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\n\n${form.message}`;
+      window.location.href = `mailto:${c?.email ?? 'info@ptamumbai.com'}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setStatus({ state: 'success', message: 'Your email app has opened with this message — please press Send there.' });
+      return;
+    }
+
+    setStatus({ state: 'sending', message: '' });
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',

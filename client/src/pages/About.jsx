@@ -1,3 +1,4 @@
+import { asset } from '../asset.js';
 import { useState } from 'react';
 import { useApi, useSite, Loader, ErrorBox } from '../api.jsx';
 import PageBanner from '../components/PageBanner.jsx';
@@ -20,8 +21,8 @@ export default function About() {
         <div className="container">
           <div className="about-intro">
             <div className="about-images">
-              <img src="/images/about2.jpg" alt="PTA Mumbai" loading="lazy" />
-              <img src="/images/about1.jpg" alt="PTA Mumbai" loading="lazy" />
+              <img src={asset("/images/about2.jpg")} alt="PTA Mumbai" loading="lazy" />
+              <img src={asset("/images/about1.jpg")} alt="PTA Mumbai" loading="lazy" />
             </div>
             <div className="prose">
               <p className="kicker">Association Roots</p>

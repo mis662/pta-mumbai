@@ -1,3 +1,4 @@
+import { asset } from '../asset.js';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSite } from '../api.jsx';
@@ -17,14 +18,14 @@ export default function Header() {
   }, []);
 
   const phone = site?.contact?.phone ?? '+91 22 66663322';
-  const formUrl = site?.membershipFormUrl || '/PTA-New-Membership-Form.pdf';
+  const formUrl = asset(site?.membershipFormUrl || '/PTA-New-Membership-Form.pdf');
   const tel = phone.replace(/\s/g, '');
 
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="container hdr">
         <Link to="/" className="brand" aria-label="PTA Mumbai home">
-          <span className="logo-crop"><img src="/images/logo.png" alt="PTA Mumbai" /></span>
+          <span className="logo-crop"><img src={asset("/images/logo.png")} alt="PTA Mumbai" /></span>
         </Link>
 
         <div className="hdr-right">

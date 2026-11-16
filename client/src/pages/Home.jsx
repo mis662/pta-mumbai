@@ -1,3 +1,4 @@
+import { asset } from '../asset.js';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useApi, useSite } from '../api.jsx';
@@ -13,7 +14,7 @@ export default function Home() {
   const { data: members } = useApi('/api/members');
   const { data: blogs } = useApi('/api/blogs');
   const [openFaq, setOpenFaq] = useState(0);
-  const formUrl = site?.membershipFormUrl ?? '/PTA-New-Membership-Form.pdf';
+  const formUrl = asset(site?.membershipFormUrl ?? '/PTA-New-Membership-Form.pdf');
   const [lead, ...moreNews] = site?.news ?? [];
 
   return (
@@ -46,8 +47,8 @@ export default function Home() {
               <p className="kicker">Association Roots · Est. {site?.foundedYear ?? 1941}</p>
               <h2 className="display">A glorious history, written by Mumbai's paper traders.</h2>
               <figure className="photo-stack">
-                <img className="photo-main" src="/images/about2.jpg" alt="Members attending a PTA Mumbai seminar" loading="lazy" />
-                <img className="photo-small" src="/images/about1.jpg" alt="Traders standing together" loading="lazy" />
+                <img className="photo-main" src={asset("/images/about2.jpg")} alt="Members attending a PTA Mumbai seminar" loading="lazy" />
+                <img className="photo-small" src={asset("/images/about1.jpg")} alt="Traders standing together" loading="lazy" />
                 <figcaption className="years-badge">
                   <strong>{new Date().getFullYear() - (site?.foundedYear ?? 1941)}</strong>
                   <span>years serving<br />the paper trade</span>
