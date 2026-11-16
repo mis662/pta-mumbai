@@ -39,7 +39,7 @@ export default function Contact() {
 
   return (
     <>
-      <PageBanner title="Contact Us" subtitle="Have questions? Reach out to us for more information and support!" />
+      <PageBanner title="Contact Us" subtitle="Have questions? Reach out to us for more information and support!" image="/images/banner.jpg" />
 
       <section className="section">
         <div className="container contact-grid">

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-export default function PageBanner({ title, subtitle, crumb }) {
+export default function PageBanner({ title, subtitle, crumb, image = '/images/about2.jpg' }) {
   return (
-    <section className="page-banner">
+    <section className="page-banner" style={{ '--banner-img': `url('${image}')` }}>
       <div className="container">
         <nav className="breadcrumb" aria-label="Breadcrumb">
           <Link to="/">Home</Link> <span>/</span> {crumb ?? title}

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useApi, useSite } from '../api.jsx';
 import BlogCard, { formatDate } from '../components/BlogCard.jsx';
 import Ledger from '../components/Ledger.jsx';
-import { PhoneIcon, ArrowIcon, ChevronIcon } from '../components/Icons.jsx';
+import { PhoneIcon, ArrowIcon, ChevronIcon, iconMap } from '../components/Icons.jsx';
 
 const initials = (name) => name.replace(/^(Shri|Smt\.)\s+/, '').split(' ').map((w) => w[0]).join('');
 const newsDate = (n) => n.dateLabel ?? formatDate(n.date);
@@ -45,8 +45,13 @@ export default function Home() {
             <div className="intro-head">
               <p className="kicker">Association Roots · Est. {site?.foundedYear ?? 1941}</p>
               <h2 className="display">A glorious history, written by Mumbai's paper traders.</h2>
-              <figure className="intro-figure">
-                <img src="/images/history.png" alt="PTA Mumbai and the Federation of Paper Traders' Associations of India" loading="lazy" />
+              <figure className="photo-stack">
+                <img className="photo-main" src="/images/about2.jpg" alt="Members attending a PTA Mumbai seminar" loading="lazy" />
+                <img className="photo-small" src="/images/about1.jpg" alt="Traders standing together" loading="lazy" />
+                <figcaption className="years-badge">
+                  <strong>{new Date().getFullYear() - (site?.foundedYear ?? 1941)}</strong>
+                  <span>years serving<br />the paper trade</span>
+                </figcaption>
               </figure>
             </div>
             <div className="intro-body prose">
@@ -62,22 +67,28 @@ export default function Home() {
 
       {/* ---------- Services ---------- */}
       <section className="section services" id="services">
-        <div className="container split">
-          <div className="split-head">
-            <p className="kicker">Our Services</p>
-            <h2 className="display">What the association does for its members.</h2>
-            <p className="muted">From settling a dispute to testing a ream, PTA is the first call a Mumbai paper trader makes.</p>
+        <div className="container">
+          <div className="row-head">
+            <div>
+              <p className="kicker">Our Services</p>
+              <h2 className="display">What the association does for its members.</h2>
+            </div>
+            <p className="muted row-note">From settling a dispute to testing a ream, PTA is the first call a Mumbai paper trader makes.</p>
           </div>
-          <ol className="numbered">
-            {site?.services.map((s, i) => (
-              <li key={s.title}>
-                <span className="num">{String(i + 1).padStart(2, '0')}</span>
-                <div>
+          <ol className="service-grid">
+            {site?.services.map((s, i) => {
+              const Icon = iconMap[s.icon] ?? iconMap.handshake;
+              return (
+                <li className="service-card" key={s.title}>
+                  <div className="service-top">
+                    <span className="service-icon"><Icon width={28} height={28} /></span>
+                    <span className="num">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                </div>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>
@@ -117,8 +128,8 @@ export default function Home() {
             <Link to="/members" className="text-link">All committee &amp; sub-committee members</Link>
           </div>
           <div className="people">
-            {members?.office.map((m) => (
-              <div className="person" key={m.name}>
+            {members?.office.map((m, i) => (
+              <div className={`person ${i === 0 ? 'lead' : ''}`} key={m.name}>
                 <span className="monogram">{initials(m.name)}</span>
                 <h3>{m.name}</h3>
                 <p>{m.designation}</p>

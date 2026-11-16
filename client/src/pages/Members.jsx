@@ -8,19 +8,21 @@ export default function Members() {
   const { data, loading, error } = useApi('/api/members');
   const [q, setQ] = useState('');
 
-  // One numbered list, same order as the original site
-  const rows = useMemo(() => {
-    if (!data) return [];
-    const list = data.office.map((m) => ({ name: m.name, designation: m.designation }));
-    data.groups.forEach((g) => g.names.forEach((n) => list.push({ name: n, designation: g.label })));
-    return list.map((r, i) => ({ ...r, sr: i + 1 }));
-  }, [data]);
-
-  const filtered = rows.filter((r) => (r.name + r.designation).toLowerCase().includes(q.toLowerCase()));
+  const total = useMemo(
+    () => (data ? data.office.length + data.groups.reduce((n, g) => n + g.names.length, 0) : 0),
+    [data],
+  );
+  const term = q.trim().toLowerCase();
+  const groups = (data?.groups ?? [])
+    .map((g) => ({
+      ...g,
+      names: g.names.filter((n) => !term || (n + ' ' + g.label).toLowerCase().includes(term)),
+    }))
+    .filter((g) => g.names.length);
 
   return (
     <>
-      <PageBanner title="Members" subtitle="Managing Committee, Sub-Committees and Women's Wing of PTA Mumbai" />
+      <PageBanner title="Members" subtitle="Managing Committee, Sub-Committees and Women's Wing of PTA Mumbai" image="/images/about1.jpg" />
 
       {loading && <Loader />}
       {error && <ErrorBox error={error} />}
@@ -36,8 +38,8 @@ export default function Members() {
                 </div>
               </div>
               <div className="people">
-                {data.office.map((m) => (
-                  <div className="person" key={m.name}>
+                {data.office.map((m, i) => (
+                  <div className={`person ${i === 0 ? 'lead' : ''}`} key={m.name}>
                     <span className="monogram">{initials(m.name)}</span>
                     <h3>{m.name}</h3>
                     <p>{m.designation}</p>
@@ -71,35 +73,32 @@ export default function Members() {
             <div className="container">
               <div className="row-head">
                 <div>
-                  <p className="kicker">{rows.length} members</p>
+                  <p className="kicker">{total} members incl. office bearers</p>
                   <h2 className="display">Managing Committee</h2>
                 </div>
                 <input
                   type="search"
                   className="search"
-                  placeholder="Search by name or role"
+                  placeholder="Search a member by name"
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
                   aria-label="Search members"
                 />
               </div>
-              <div className="table-wrap">
-                <table className="data-table">
-                  <thead>
-                    <tr><th>Sr. No.</th><th>Name</th><th>Designation</th></tr>
-                  </thead>
-                  <tbody>
-                    {filtered.map((r) => (
-                      <tr key={r.sr}>
-                        <td>{r.sr}</td>
-                        <td>{r.name}</td>
-                        <td>{r.designation}</td>
-                      </tr>
+              {groups.map((g) => (
+                <div className="member-group" key={g.label}>
+                  <h3 className="group-title">{g.label} <span>{g.names.length}</span></h3>
+                  <ul className="name-grid">
+                    {g.names.map((n) => (
+                      <li key={n}>
+                        <span className="mini-mono">{initials(n)}</span>
+                        {n}
+                      </li>
                     ))}
-                    {!filtered.length && <tr><td colSpan={3} className="center">No members match “{q}”.</td></tr>}
-                  </tbody>
-                </table>
-              </div>
+                  </ul>
+                </div>
+              ))}
+              {!groups.length && <p className="center muted">No members match “{q}”.</p>}
             </div>
           </section>
 
