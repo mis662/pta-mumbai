@@ -1,5 +1,4 @@
-// The PTA Mumbai API. Used by server/index.js (local / Node hosting)
-// and by netlify/functions/api.mjs (Netlify).
+// The PTA Mumbai API, used by server/index.js.
 import express from 'express';
 import cors from 'cors';
 import fs from 'node:fs/promises';
@@ -7,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import nodemailer from 'nodemailer';
 
-// Content is imported (not read from disk) so it is bundled into the Netlify Function.
+// Website content (edit these JSON files to change the site).
 import site from './data/site.json' with { type: 'json' };
 import members from './data/members.json' with { type: 'json' };
 import history from './data/history.json' with { type: 'json' };
@@ -18,13 +17,6 @@ const DATA = path.join(path.dirname(fileURLToPath(import.meta.url)), 'data');
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '50kb' }));
-
-// On Netlify, requests may arrive as /.netlify/functions/api/<route>; map them back to /api/<route>.
-app.use((req, _res, next) => {
-  const prefix = '/.netlify/functions/api';
-  if (req.url.startsWith(prefix)) req.url = '/api' + (req.url.slice(prefix.length) || '/');
-  next();
-});
 
 // ---------- Content API ----------
 app.get('/api/site', (_req, res) => res.json(site));
@@ -68,7 +60,7 @@ app.post('/api/contact', async (req, res) => {
   const record = { ...enquiry, receivedAt: new Date().toISOString() };
   console.log('Website enquiry:', JSON.stringify(record));
 
-  // Keep a copy on disk where the host allows it (not possible on Netlify).
+  // Keep a copy on disk where the host allows it (not possible on read-only hosts).
   let saved = false;
   try {
     const file = path.join(DATA, 'enquiries.json');
