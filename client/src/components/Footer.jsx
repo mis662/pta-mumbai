@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSite } from '../api.jsx';
+import { PinIcon, PhoneIcon, MailIcon, ClockIcon } from './Icons.jsx';
 
 export default function Footer() {
   const site = useSite();
@@ -14,21 +15,24 @@ export default function Footer() {
 
         <div className="footer-grid">
           <div>
-            <h4>Visit</h4>
-            <p>{c?.address}</p>
-          </div>
-          <div>
-            <h4>Contact</h4>
+            <h4>Get in touch</h4>
             {c && (
-              <p>
-                <a href={`tel:${c.phone.replace(/\s/g, '')}`}>{c.phone}</a><br />
-                <a href={`mailto:${c.email}`}>{c.email}</a>
-              </p>
+              <ul className="footer-contact">
+                <li><PinIcon width={18} height={18} /><span>{c.address}</span></li>
+                <li><PhoneIcon width={18} height={18} /><a href={`tel:${c.phone.replace(/\s/g, '')}`}>{c.phone}</a></li>
+                <li><MailIcon width={18} height={18} /><a href={`mailto:${c.email}`}>{c.email}</a></li>
+              </ul>
             )}
           </div>
           <div>
             <h4>Working Time</h4>
-            <p>{(c?.hours ?? []).map((h) => <span key={h}>{h}<br /></span>)}</p>
+            <ul className="footer-contact">
+              <li><ClockIcon width={18} height={18} /><span>{(c?.hours ?? []).map((h) => <span key={h}>{h}<br /></span>)}</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4>About PTA</h4>
+            <p>Serving Mumbai's paper traders since {site?.foundedYear ?? 1941}. Affiliated to the Federation of Paper Traders' Associations of India (FPTA).</p>
           </div>
           <div>
             <h4>Quick Links</h4>
