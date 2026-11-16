@@ -1,0 +1,172 @@
+{
+  "office": [
+    {
+      "name": "Shri Hiren Karia",
+      "designation": "President"
+    },
+    {
+      "name": "Shri Bhavesh Gala",
+      "designation": "Vice President"
+    },
+    {
+      "name": "Shri Ashish Karia",
+      "designation": "Hon. Secretary"
+    },
+    {
+      "name": "Shri Harshit Gala",
+      "designation": "Hon. Treasurer"
+    }
+  ],
+  "groups": [
+    {
+      "label": "MC Members",
+      "names": [
+        "Shri Bharat Shah",
+        "Shri Bhavesh Karia",
+        "Shri Bhorik Bansal",
+        "Shri Devang Vora",
+        "Shri Divyesh Shah",
+        "Shri Hitesh Shah",
+        "Shri Kishore Kabra",
+        "Shri Kunal Karia",
+        "Shri Manoj Doshi",
+        "Shri Raghav Kothari",
+        "Shri Ronak Nishar",
+        "Shri Sumit Shah"
+      ]
+    },
+    {
+      "label": "Co-Opt Members",
+      "names": [
+        "Shri Ashok Kabra",
+        "Shri Nimesh Vora",
+        "Shri Jay Gala"
+      ]
+    },
+    {
+      "label": "Sp. Invitees",
+      "names": [
+        "Shri Shamji Karia",
+        "Shri Rajen Aythora",
+        "Shri Dhiraj Karia",
+        "Shri Parish Parekh",
+        "Shri Mehul Mehta",
+        "Shri Nitish Shah",
+        "Shri Gaurang Mehta",
+        "Shri Ashok Java",
+        "Shri Hasit Shah",
+        "Shri Camille Sheth",
+        "Shri Arun Murarka",
+        "Shri Ramesh Mandhania",
+        "Shri Yatin Mody"
+      ]
+    }
+  ],
+  "subCommittees": [
+    {
+      "name": "Grievances Redressal",
+      "convenor": "Mehul Mehta (Chairman)",
+      "members": [
+        "Rajen Aythora"
+      ]
+    },
+    {
+      "name": "Labour, Legal & Government Affairs",
+      "convenor": "Devang Vora",
+      "members": [
+        "Ronak Nishar",
+        "Bhorik Bansal",
+        "Bhavesh Karia"
+      ]
+    },
+    {
+      "name": "New Membership Application & Scrutinising",
+      "convenor": "Bharat Shah",
+      "members": []
+    },
+    {
+      "name": "Paper Awareness, Sustainability & Education",
+      "convenor": "Nimesh Vora",
+      "members": [
+        "Hashit Shah",
+        "Sumit Shah",
+        "Bhorik Bansal"
+      ]
+    },
+    {
+      "name": "Entertainment & Sports",
+      "convenor": "Divyesh Shah",
+      "members": [
+        "Devang Vora",
+        "Kunal Karia",
+        "Kishor Kabra",
+        "Ronak Nishar",
+        "Sumit Shah"
+      ]
+    },
+    {
+      "name": "Constitution",
+      "convenor": "Bhavesh Gala",
+      "members": [
+        "Mehul Mehta"
+      ]
+    },
+    {
+      "name": "Publication",
+      "convenor": "Rajen Aythora",
+      "members": [
+        "Parish Parekh"
+      ]
+    },
+    {
+      "name": "Packaging Board & Coated Dealers Welfare",
+      "convenor": "Arun Murarka",
+      "members": [
+        "Mehul Mehta",
+        "Ashok Java",
+        "Camille Sheth",
+        "Raghav Kothari",
+        "Nimesh Vora"
+      ]
+    },
+    {
+      "name": "Social Media & Website",
+      "convenor": "Jay Gala",
+      "members": [
+        "Ronak Nishar",
+        "Kishor Kabra",
+        "Mehul Mehta"
+      ]
+    }
+  ],
+  "womensWing": {
+    "since": "October 2025",
+    "intro": "In 2025 PTA Mumbai formed a Women's Wing within its Managing Committee to champion inclusivity and empowerment in the paper trade. Six dynamic women entrepreneurs were inducted into the Committee.",
+    "members": [
+      {
+        "name": "Smt. Aruna Karia",
+        "firm": "Hero Multi-Pap"
+      },
+      {
+        "name": "Smt. Beena Gala",
+        "firm": "Infinity Industries"
+      },
+      {
+        "name": "Smt. Hema Java",
+        "firm": "CH Java"
+      },
+      {
+        "name": "Smt. Surbhi Kothari",
+        "firm": "Shree Krishna Commercial"
+      },
+      {
+        "name": "Smt. Barkha Sugand",
+        "firm": "Ajanta Paper"
+      },
+      {
+        "name": "Smt. Garima Aurora",
+        "firm": "Unisource Paper"
+      }
+    ]
+  }
+}

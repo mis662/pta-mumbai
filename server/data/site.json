@@ -1,0 +1,204 @@
+{
+  "name": "Paper Traders' Association of Mumbai",
+  "shortName": "PTA Mumbai",
+  "hero": {
+    "caption": "New Opportunities Makes company growth",
+    "intro": "Welcome to the Paper Traders' Association of Mumbai (PTA), a dynamic community dedicated to empowering traders through knowledge, strategies, and networking."
+  },
+  "foundedYear": 1941,
+  "historyIntro": "The origin of the Paper Traders’ Association, Bombay, dates back to a few years earlier than 1941, probably it may be 1938 or even earlier. Many paper merchants still remember very well that the meetings of the Association in those unrecorded years were held at the shop of late Shri Kikabhoy Chandabhoy for which we have no records to guide us. We have now some written records, though even those are all too meager for the purpose of a well-knit story of the origin and activities of the Association during the years 1941 to 1944. However, it may be stated now, with a sense of nostalgia, that the seed which was sown in 1938 sprouted and blossomed into the Paper Traders Association, Bombay in the year 1941.",
+  "affiliations": "Seventy Five years ago when the association was set up, the aim was to serve the interest of the paper traders. Since then the Paper Traders' Association (PTA) has always maintained a practice approach to encourage, promote and protect the interest of its members. The work done by the association is something which holds strong. Read it further to have a through insight for the years gone by.",
+  "services": [
+    {
+      "title": "Mediation",
+      "icon": "handshake",
+      "text": "At PTA Mumbai, we believe in maintaining harmony within the paper trading community. Our mediation services help resolve disputes fairly and efficiently, ensuring smooth business relationships and fostering trust among members. With a neutral and transparent approach, we strive to create an environment where every trader feels supported."
+    },
+    {
+      "title": "GSM Test",
+      "icon": "scale",
+      "text": "To uphold industry standards, PTA Mumbai offers reliable GSM testing services. This ensures accuracy in paper weight measurement, helping members maintain consistent quality and meet client expectations. By providing trusted testing support, we enable traders to build credibility and strengthen their business."
+    },
+    {
+      "title": "Advocacy & Representation",
+      "icon": "megaphone",
+      "text": "For over eight decades PTA has represented Mumbai's paper traders before the Government — from opposing Octroi hikes and the Local Body Tax to working alongside FPTA to stop the proposed Safeguard Duty on paper and board imports in 2008."
+    },
+    {
+      "title": "Recovery of Dues",
+      "icon": "wallet",
+      "text": "Through dedicated Board Dealers and Coated Dealers committees, PTA helps members recover outstanding dues — an initiative that has proved very successful for the benefit of members since 2015."
+    }
+  ],
+  "contact": {
+    "phone": "+91 22 66663322",
+    "email": "info@ptamumbai.com",
+    "location": "Fort, Mumbai",
+    "address": "8, Rohit Chambers, Ground Floor, Janmabhoomi Marg, Fort, Mumbai- 400001, Maharashtra, India",
+    "hours": [
+      "Mon - Sat: 10:00 AM - 6:00 PM",
+      "Sunday Closed"
+    ]
+  },
+  "membershipFormUrl": "/PTA-New-Membership-Form.pdf",
+  "enquiryServices": [
+    "Registration",
+    "General Enquiry",
+    "Other"
+  ],
+  "stats": [
+    {
+      "value": "1941",
+      "label": "Year established"
+    },
+    {
+      "value": "85+",
+      "label": "Years serving the trade"
+    },
+    {
+      "value": "38",
+      "label": "Committee members"
+    },
+    {
+      "value": "9",
+      "label": "Active sub-committees"
+    }
+  ],
+  "milestones": [
+    {
+      "year": "1941",
+      "title": "Association formed",
+      "text": "The seed sown in 1938 at the shop of late Shri Kikabhoy Chandabhoy blossomed into the Paper Traders' Association, Bombay."
+    },
+    {
+      "year": "1959",
+      "title": "First FPTA Conference",
+      "text": "PTA took the lead in convening the first conference of the Federation of Paper Traders' Associations of India in Bombay, inaugurated by Shri Lal Bahadur Shastri. Delegates from 17 associations attended."
+    },
+    {
+      "year": "1984",
+      "title": "FPTA Silver Jubilee",
+      "text": "Hosted the Silver Jubilee Conference of FPTA at Sea Rock Hotel, Bombay (24–26 March)."
+    },
+    {
+      "year": "2008",
+      "title": "Safeguard Duty stopped",
+      "text": "Together with FPTA, PTA successfully opposed the proposed Safeguard Duty on imports of paper and board."
+    },
+    {
+      "year": "2009",
+      "title": "FPTA 48th AGM in Mumbai",
+      "text": "Organised the 48th AGM & Conference of FPTA — its Golden Jubilee year — at Hotel Taj Lands End, Mumbai (5–7 September)."
+    },
+    {
+      "year": "2013",
+      "title": "New office inaugurated",
+      "text": "PTA's own office at Fort was inaugurated on 1st August 2013 — a dream come true for the Mumbai paper trading fraternity."
+    },
+    {
+      "year": "2015",
+      "title": "Dealer committees",
+      "text": "Board Dealers and Coated Dealers committees formed for the recovery of dues, to the great benefit of members."
+    },
+    {
+      "year": "2025",
+      "title": "Women's Wing launched",
+      "text": "Six women entrepreneurs inducted into the PTA Mumbai Committee, championing inclusivity in the paper trade."
+    }
+  ],
+  "whyJoin": [
+    {
+      "icon": "shield",
+      "title": "A collective voice",
+      "text": "Your concerns represented to Government and policy makers through the Labour, Legal & Government Affairs committee and FPTA."
+    },
+    {
+      "icon": "handshake",
+      "title": "Fair dispute resolution",
+      "text": "Access to neutral mediation and a dedicated Grievances Redressal committee."
+    },
+    {
+      "icon": "wallet",
+      "title": "Help with recovering dues",
+      "text": "Board and Coated Dealers committees that work to recover outstanding payments for members."
+    },
+    {
+      "icon": "scale",
+      "title": "GSM testing",
+      "text": "Reliable paper-weight testing so you can assure customers of consistent quality."
+    },
+    {
+      "icon": "book",
+      "title": "Knowledge & seminars",
+      "text": "Seminars on taxation, law and industry trends, plus the Paper Awareness, Sustainability & Education programme."
+    },
+    {
+      "icon": "users",
+      "title": "Networking & events",
+      "text": "Meet fellow traders, mills and industry leaders at AGMs, FPTA conferences, sports and entertainment events."
+    }
+  ],
+  "joinSteps": [
+    {
+      "title": "Download the form",
+      "text": "Get the PTA New Membership Form (PDF) from this website."
+    },
+    {
+      "title": "Fill in your details",
+      "text": "Complete the form with your firm's details and attach the documents it asks for."
+    },
+    {
+      "title": "Submit at our office",
+      "text": "Hand it in at 8, Rohit Chambers, Fort — Mon to Sat, 10 AM to 6 PM."
+    },
+    {
+      "title": "Review & welcome",
+      "text": "The New Membership Application & Scrutinising committee reviews your application."
+    }
+  ],
+  "news": [
+    {
+      "date": "2025-10-17",
+      "title": "PTA Mumbai establishes Women's Wing, championing inclusivity in the industry",
+      "text": "Six women entrepreneurs were inducted into the PTA Mumbai Committee. President Shri Hiren Karia urged FPTA and other regional associations to consider similar representation.",
+      "source": "PrintWeek India",
+      "url": "https://www.printweek.in/news/pta-mumbai-establishes-womens-wing-61211"
+    },
+    {
+      "date": "2009-09-05",
+      "title": "PTA Mumbai hosts FPTA's 48th AGM in its Golden Jubilee year",
+      "text": "The 48th Annual General Meeting & Conference of the Federation of Paper Traders' Associations of India was organised by PTA Mumbai at Hotel Taj Lands End, Mumbai.",
+      "source": "Papermart",
+      "url": "https://papermart.in/fpta-organizes-48th-agm/"
+    },
+    {
+      "date": "1959-02-16",
+      "title": "PTA convenes the first-ever FPTA conference",
+      "text": "The association took the lead in bringing paper traders' associations from across India together in Bombay — the beginning of the national federation.",
+      "source": "PTA History",
+      "url": "/about-us"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Who can become a member of PTA Mumbai?",
+      "a": "Paper traders and firms engaged in the paper trade in Mumbai can apply. Download the membership form and submit it at our office; the New Membership Application & Scrutinising committee will review your application."
+    },
+    {
+      "q": "What services does PTA offer to members?",
+      "a": "Mediation of trade disputes, GSM testing, assistance with recovery of dues, representation to Government on trade issues, seminars, and networking events."
+    },
+    {
+      "q": "Is PTA Mumbai affiliated to a national body?",
+      "a": "Yes. PTA Mumbai works closely with the Federation of Paper Traders' Associations of India (FPTA) and took the lead in convening FPTA's very first conference in 1959."
+    },
+    {
+      "q": "Where is the PTA office and when is it open?",
+      "a": "8, Rohit Chambers, Ground Floor, Janmabhoomi Marg, Fort, Mumbai 400001. We are open Monday to Saturday, 10:00 AM to 6:00 PM, and closed on Sundays."
+    },
+    {
+      "q": "How can I raise a grievance against another trader?",
+      "a": "Contact the office by phone or email, or use the enquiry form on our Contact page. Your matter will be routed to the Grievances Redressal committee or our mediation service."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "pta-mumbai-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "description": "Dependencies are declared in the root package.json"
+}
