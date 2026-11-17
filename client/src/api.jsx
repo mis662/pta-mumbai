@@ -8,13 +8,13 @@ const getJson = (url) =>
 async function staticApi(url) {
   const blog = url.match(/^\/api\/blogs\/([^/]+)$/);
   if (blog) {
-    const post = (await getJson(asset('/data/blogs.json'))).find((b) => b.slug === decodeURIComponent(blog[1]));
+    const post = (await getJson(asset(`/data/blogs.json?v=${__BUILD_ID__}`))).find((b) => b.slug === decodeURIComponent(blog[1]));
     if (!post) throw new Error('Not found');
     return post;
   }
   const name = url.match(/^\/api\/(site|members|history|blogs)$/)?.[1];
   if (!name) throw new Error('Not found');
-  return getJson(asset(`/data/${name}.json`));
+  return getJson(asset(`/data/${name}.json?v=${__BUILD_ID__}`));
 }
 
 /** Fetch JSON from the Node API (or the static data files on GitHub Pages). */
