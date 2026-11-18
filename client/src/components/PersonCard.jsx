@@ -1,6 +1,9 @@
 import { asset } from '../asset.js';
 
-export const initials = (name) => name.replace(/^(Shri|Smt\.)\s+/, '').split(' ').map((w) => w[0]).join('');
+export const initials = (name) => {
+  const w = name.replace(/^(Shri|Smt\.|Mrs\.)\s+/, '').split(/\s+/).filter(Boolean);
+  return (w[0][0] + (w.length > 1 ? w[w.length - 1][0] : '')).toUpperCase();
+};
 
 /** Office-bearer card: photo if we have one, otherwise initials. */
 export default function PersonCard({ person, lead = false }) {
