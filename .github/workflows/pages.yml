@@ -20,10 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VITE_STATIC: '1'
-      # While on mis662.github.io/pta-mumbai/ keep BASE_PATH "/pta-mumbai/".
-      # When ptamumbai.com points to GitHub: set BASE_PATH to "/" and CUSTOM_DOMAIN to "ptamumbai.com".
-      BASE_PATH: /pta-mumbai/
-      CUSTOM_DOMAIN: ''
+      # Site is served from the root of the custom domain https://ptamumbai.com/
+      # (the build writes client/dist/CNAME from CUSTOM_DOMAIN).
+      BASE_PATH: /
+      CUSTOM_DOMAIN: ptamumbai.com
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

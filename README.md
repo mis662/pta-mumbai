@@ -54,8 +54,8 @@ For Hostinger email: `SMTP_HOST=smtp.hostinger.com`, `SMTP_PORT=465`.
 
 ## Deploying on GitHub Pages (current live site)
 
-Live: https://mis662.github.io/pta-mumbai/ — repo https://github.com/mis662/pta-mumbai
+Live: https://ptamumbai.com/ — repo https://github.com/mis662/pta-mumbai
 
 - Every push to `main` rebuilds and publishes automatically (`.github/workflows/pages.yml`, takes ~1 minute; see the **Actions** tab).
 - Pages has no Node server: content is read from `data/*.json` (copied from `server/data` by `scripts/build-pages.mjs`), and the contact form opens the visitor's email app addressed to the office.
-- **Moving to ptamumbai.com:** in `pages.yml` set `BASE_PATH: /` and `CUSTOM_DOMAIN: ptamumbai.com`, push, then in GitHub → Settings → Pages enter `ptamumbai.com`. At Hostinger DNS: `A` records for `@` → 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 and a `CNAME` for `www` → `mis662.github.io`.
+- **Custom domain:** `pages.yml` builds with `BASE_PATH: /` and `CUSTOM_DOMAIN: ptamumbai.com` (writes the `CNAME` file). GitHub → Settings → Pages has `ptamumbai.com`. Hostinger DNS: `A` records for `@` → 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 and a `CNAME` for `www` → `mis662.github.io`.
